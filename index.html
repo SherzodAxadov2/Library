@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Library</title>
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      i {
+        color: aliceblue;
+      }
+      h1 i {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center font-mono">
+    <div class="library sm:w-1/2 w-full py-10 sm:px-0 px-6">
+      <h1
+        class="text-center sm:text-4xl text-3xl font-bold text-amber-500 tracking-widest mb-[40px]"
+      >
+        My Library
+        <i class="fa-solid fa-book-open-reader"></i>
+      </h1>
+
+      <form class="flex gap-[20px] flex-col mb-8">
+        <label class="block">
+          <span
+            class="block text-sm fon font-medium text-slate-700 sm:text-[16px] text-[14px] mb-2"
+            >Title</span
+          >
+          <input
+            type="text"
+            class="title sm:text-[16px] text-[14px] mb-2 outline-none border-2 border-teal-200 focus:border-teal-400 w-full py-3 pl-3 rounded-lg"
+            placeholder="Name of your book"
+            required
+          />
+        </label>
+
+        <label class="block">
+          <span
+            class="block text-sm fon font-medium text-slate-700 sm:text-[16px] text-[14px] mb-2"
+            >Author</span
+          >
+          <input
+            type="text"
+            class="author sm:text-[16px] text-[14px] mb-2 outline-none border-2 border-teal-200 focus:border-teal-400 w-full py-3 pl-3 rounded-lg"
+            placeholder="Name of your book's author"
+            required
+          />
+        </label>
+
+        <label class="block">
+          <span
+            class="block text-sm fon font-medium text-slate-700 sm:text-[16px] text-[14px] mb-2"
+            >Year</span
+          >
+          <input
+            type="text"
+            class="year sm:text-[16px] text-[14px] mb-2 outline-none border-2 border-teal-200 focus:border-teal-400 w-full py-3 pl-3 rounded-lg"
+            placeholder="Year the book was published"
+            required
+          />
+        </label>
+
+        <button
+          type="submit"
+          add-btn
+          class="btn sm:text-[16px] text-[14px] mb-2 text-white bg-sky-500 hover:bg-sky-400 transition-all duration-300 py-3 rounded-lg"
+        >
+          NEW BOOK
+        </button>
+      </form>
+
+      <table class="border-collapse border border-slate-300 w-full">
+        <thead>
+          <tr class="border-b border-slate-300">
+            <th class="py-2">Title</th>
+            <th class="py-2">Author</th>
+            <th class="py-2">Year</th>
+            <th class="py-2">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-slate-300">
+            <td class="text-center py-2">Indiana</td>
+            <td class="text-center py-2">Indianapolis</td>
+            <td class="text-center py-2">20000</td>
+            <td>
+              <div class="flex items-center justify-center gap-[5px]">
+                <button
+                  class="bg-green-500 hover:bg-green-600 rounded transitin-all duration-300"
+                >
+                  <i class="fa-solid fa-check p-2"></i>
+                </button>
+                <button
+                  class="bg-yellow-400 hover:bg-yellow-500 rounded transitin-all duration-300"
+                >
+                  <i class="fa-sharp fa-solid fa-xmark p-2"></i>
+                </button>
+                <button
+                  class="bg-red-500 hover:bg-red-600 rounded transitin-all duration-300"
+                >
+                  <i class="fa-sharp fa-solid fa-trash p-2"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
