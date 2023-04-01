@@ -1,19 +1,28 @@
 "use script";
-let allBooks = [
-  {
-    id: Date.now(),
-    title: "Solihlar gulshani",
-    author: "Honiy al-Haj",
-    createdYear: 2022,
-    isRead: false,
-  },
-];
 let obj = {};
 const tbody = document.querySelector("tbody");
 const addBtn = document.querySelector("[add-btn]");
 const title = document.querySelector(".title");
 const author = document.querySelector(".author");
 const year = document.querySelector(".year");
+
+let allBooks = JSON.parse(localStorage.getItem("allBooks"))
+  ? JSON.parse(localStorage.getItem("allBooks"))
+  : [
+      {
+        id: Date.now(),
+        title: "Solihlar gulshani",
+        author: "Honiy al-Haj",
+        createdYear: 2022,
+        isRead: false,
+      },
+    ];
+
+const saveStorage = (books) => {
+  localStorage.setItem("allBooks", JSON.stringify(books));
+};
+
+saveStorage(allBooks);
 
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -32,6 +41,7 @@ addBtn.addEventListener("click", (e) => {
   } else alert("Iltimos maydonlarni to`liq to`ldiring!");
 
   setAllBooks(allBooks);
+  saveStorage(allBooks);
 });
 
 const setAllBooks = (books) => {
@@ -83,13 +93,16 @@ const isReadBook = (id) => {
     }
   });
   setAllBooks(allBooks);
+  saveStorage(allBooks);
 };
+
 const deleteBook = (id) => {
   allBooks.map((book) => {
     if (book.id === id) {
       if (confirm(`Are you sure, you want to delete!`)) {
         allBooks = allBooks.filter((book) => book.id !== id);
         setAllBooks(allBooks);
+        saveStorage(allBooks);
       }
     }
   });
